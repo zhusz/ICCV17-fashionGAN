@@ -1,0 +1,121 @@
+*.avi
+log*
+*.t7
+*.h5
+
+*.sovlerstate
+*.caffemodel
+*.pdf
+*.jpg
+*.zip
+*.bmp
+*.png
+*.rar
+*.tar
+*.tar.gz
+*.fig
+*.dll
+*.wmv
+*.xml
+*.YML
+*.ppt
+*.pptx
+*.doc
+*.docx
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.cuo
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Compiled protocol buffers
+*.pb.h
+*.pb.cc
+*_pb2.py
+
+# Compiled python
+*.pyc
+
+# Compiled MATLAB
+*.mex*
+*.mat
+!codes/vis_face_alignment/std_series/cir/*.mat
+
+# IPython notebook checkpoints
+.ipynb_checkpoints
+
+# Editor temporaries
+*.swp
+*~
+
+# Sublime Text settings
+*.sublime-workspace
+*.sublime-project
+
+# Eclipse Project settings
+*.*project
+.settings
+
+# QtCreator files
+*.user
+
+# PyCharm files
+.idea
+
+# OSX dir files
+.DS_Store
+
+## Caffe
+
+# User's build configuration
+Makefile.config
+
+# Data and models are either
+# 1. reference, and not casually committed
+# 2. custom, and live on their own unless they're deliberated contributed
+data/*
+models/*
+*.caffemodel
+*.solverstate
+*.binaryproto
+*leveldb
+*lmdb
+*h5
+
+# build, distribute, and bins (+ python proto bindings)
+build
+build_old
+.build_debug/*
+.build_release/*
+distribute/*
+*.testbin
+*.bin
+python/caffe/proto/
+cmake_build
+.cmake_build
+
+# Generated documentation
+docs/_site
+docs/gathered
+_site
+doxygen
+docs/dev
+
+# LevelDB files
+*.sst
+*.ldb
+LOCK
+LOG*
+CURRENT
+MANIFEST-*
+
