@@ -10,6 +10,7 @@ log*
 *.zip
 *.bmp
 *.png
+!matrix.png
 *.rar
 *.tar
 *.tar.gz
