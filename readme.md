@@ -10,7 +10,9 @@ This is the implementation of Shizhan Zhu et al.'s ICCV-17 work [Be Your Own Pra
 
 ## Qualitative Results
 
-![alt tag](https://www.dropbox.com/s/8ws8esku27wbfel/matrix.png)
+The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
+
+![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
 
 ## Dependency
 The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required if you use the released off-the-shelf pre-trained model.
