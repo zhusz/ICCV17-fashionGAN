@@ -29,6 +29,8 @@ All the testing codes are in the `demo_release` folder. The GAN of our second st
 2. Run `demo_full.lua` as it is. It adds the skip connection technique proposed in [Hour-glass](https://github.com/anewell/pose-hg-demo) and [pix2pix](https://github.com/phillipi/pix2pix).
 3. Run `demo_p2p.lua`. The network structure completely follows [pix2pix](https://github.com/phillipi/pix2pix). The texture would be nice but cannot be controlled.
 
+You can modify [this](https://github.com/zhusz/ICCV17-fashionGAN/blob/master/demo_release/demo_full.lua#L26) block to switch different types of visualization.
+
 ## Training
 1. To train the first-stage-gan, enter the `sr1` folder and run the `train.lua` file.
 2. To train the second-stage-gan, enter the relevant folder to run the `train.lua` file. Folder `ih1` refers to our original submission. Filder `ih1_skip` refers to the second-stage-network coupled with skip connection. Folder `ih1_p2p` uses pix2pix as our second stage.
