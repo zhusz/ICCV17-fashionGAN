@@ -15,7 +15,7 @@ The samples shown in the same row are generated from the same original person wh
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
 
 ## Dependency
-The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required if you use the released off-the-shelf pre-trained model.
+The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required if you use the released off-the-shelf pre-trained model. [PyTorch](https://github.com/pytorch/pytorch) is required if you want to pre-train the language encoding on your own.
 
 ## Getting data
 Run the following command to obtain the training data and the off-the-shelf pre-trained model. It might take some time.
@@ -32,6 +32,9 @@ All the testing codes are in the `demo_release` folder. The GAN of our second st
 ## Training
 1. To train the first-stage-gan, enter the `sr1` folder and run the `train.lua` file.
 2. To train the second-stage-gan, enter the relevant folder to run the `train.lua` file. Folder `ih1` refers to our original submission. Filder `ih1_skip` refers to the second-stage-network coupled with skip connection. Folder `ih1_p2p` uses pix2pix as our second stage.
+
+## Language encoding
+Please refer to the `language` folder for training and testing the initial langugae encoding model.
 
 ## Feedback
 Suggestions and opinions of this work (both positive and negative) are greatly welcome. Please contact the author by sending email to `zhshzhutah2@gmail.com`.
