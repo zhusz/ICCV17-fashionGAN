@@ -25,7 +25,7 @@ sh download.sh
 
 ## Testing
 All the testing codes are in the `demo_release` folder. The GAN of our second stage has three options in our implementation.
-1. Run `demo_full.lua` with [this](https://github.com/zhusz/ICCV17-fashionGAN/blob/master/demo_release/demo_full.lua#L143) line uncommented. The network structure is our original submitted version.
+1. Run `demo_full.lua` with [this](https://github.com/zhusz/ICCV17-fashionGAN/blob/master/demo_release/demo_full.lua#L141) line uncommented. The network structure is our original submitted version.
 2. Run `demo_full.lua` as it is. It adds the skip connection technique proposed in [Hour-glass](https://github.com/anewell/pose-hg-demo) and [pix2pix](https://github.com/phillipi/pix2pix).
 3. Run `demo_p2p.lua`. The network structure completely follows [pix2pix](https://github.com/phillipi/pix2pix). The texture would be nice but cannot be controlled.
 
