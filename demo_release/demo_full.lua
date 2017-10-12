@@ -26,8 +26,6 @@ end
 -------------------------- Visualization at your choice ----------------------------
 local num_to_show = 64
 
--- Please note that now the second stage is pix2pix, and hence it is not dependent to language inputs and noise.
-
 -- Unconment the following two lines to condition only on the same original person.
 -- local selected_original_person_id = test_ind[torch.randperm(test_ind:size(1)):narrow(1,1,1)[1]]
 -- for i = 1, num_to_show do test_ind[i] = selected_original_person_id; end
