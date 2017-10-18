@@ -10,11 +10,13 @@ This is the implementation of Shizhan Zhu et al.'s ICCV-17 work [Be Your Own Pra
 
 ## Qualitative Results
 
-![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
-
-The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
+Matirx Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
 
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
+
+Walking the latent space: For each row, the first and the last images are the two samples that we will make the interpolation. We gradually change the input from the left image. In the first row, we only interpolate the input to the first stage and hence the generated results only change in shapes. In the second row, we only interpolate the input to the second stage and hence the results only change in textures. The last row interpolate the input for both the first and second stages and hence the generated interpolated results transfer smoothly from the left to the right.
+
+![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
 
 ## Dependency
 The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required.
