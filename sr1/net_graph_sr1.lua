@@ -10,8 +10,7 @@ local function weights_init(m)
    end
 end
 
-config_file_name = './config_sr1.lua'
-local config = dofile(config_file_name)
+local config = dofile('./config_sr1.lua')
 
 local nc = config.n_map_all
 local ncondition = config.n_condition
@@ -44,24 +43,31 @@ local f1 = input_condition - conv(ncondition, ngf, 3,3,1,1,1,1) - bn4(ngf) - ler
 local f_extra = f1 - conv(ngf*1, ngf*2, 3,3,1,1,1,1) - bn4(ngf*2) - lerelu(0.2, inplace)
 
 local g2 = nn.JoinTable(2)({g_extra, f_extra}) - deconv(ngf*10, ngf*4, 4,4,2,2,1,1) - bn4(ngf*4) - relu(inplace)
-local g3 = g2 - deconv(ngf*4, ngf*2, 4,4,2,2,1,1) - bn4(ngf*2) - relu(inplace)
+
+local m1 = g2 - conv(ngf*4, ngf*8, 3,3,1,1,1,1) - bn4(ngf*8) - lerelu(0.2, inplace)
+local m2 = m1 - conv(ngf*8, ngf*8, 3,3,1,1,1,1) - bn4(ngf*8) - lerelu(0.2, inplace)
+local m3 = m2 - conv(ngf*8, ngf*4, 3,3,1,1,1,1) - bn4(ngf*4) - lerelu(0.2, inplace)
+
+local g3 = m3 - deconv(ngf*4, ngf*2, 4,4,2,2,1,1) - bn4(ngf*2) - relu(inplace)
 local g4 = g3 - deconv(ngf*2, ngf*1, 4,4,2,2,1,1) - bn4(ngf*1) - relu(inplace)
 local g5 = g4 - deconv(ngf, nc, 4,4,2,2,1,1)
 
-local T1 = g5 - nn.Transpose({2,3},{3,4})
-local T2 = T1 - nn.View(-1,nc)
-local T3 = T2 - nn.SoftMax()
-local T4 = T3 - nn.View(-1,128,128,nc)
-local T5 = T4 - nn.Transpose({4,3},{3,2})
-
-local netG = nn.gModule({input_data, input_encode, input_condition},{T5})
+local netG = nn.gModule({input_data, input_encode, input_condition},{g5})
 netG:apply(weights_init)
 
 local output_data = nn.Identity()()
-local d1 = output_data - conv(nc,ndf,4,4,2,2,1,1) - lerelu(0.2, inplace)
+--
+local output_data_softmax = output_data - cudnn.SpatialSoftMax()
+--
+local d1 = output_data_softmax - conv(nc,ndf,4,4,2,2,1,1) - lerelu(0.2, inplace)
 local d2 = d1 - conv(ndf, ndf*2, 4,4,2,2,1,1) - bn4(ndf*2) - lerelu(0.2, inplace)
 local d3 = d2 - conv(ndf*2, ndf*4, 4,4,2,2,1,1) - bn4(ndf*4) - lerelu(0.2, inplace)
-local d4 = d3 - conv(ndf*4, ndf*8, 4,4,2,2,1,1) - bn4(ndf*8) - lerelu(0.2, inplace)
+
+local mid1 = d3 - conv(ndf*4, ndf*8, 3,3,1,1,1,1) - bn4(ndf*8) - lerelu(0.2, inplace)
+local mid2 = mid1-conv(ndf*8, ndf*8, 3,3,1,1,1,1) - bn4(ndf*8) - lerelu(0.2, inplace)
+local mid3 = mid2-conv(ndf*8, ndf*4, 3,3,1,1,1,1) - bn4(ndf*4) - lerelu(0.2, inplace)
+
+local d4 = mid3 - conv(ndf*4, ndf*8, 4,4,2,2,1,1) - bn4(ndf*8) - lerelu(0.2, inplace)
 
 local output_condition = nn.Identity()()
 local c1 = output_condition - conv(ncondition,ndf,3,3,1,1,1,1) - lerelu(0.2, inplace)

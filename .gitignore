@@ -11,6 +11,7 @@ log*
 *.bmp
 *.png
 !matrix.png
+!interp.png
 *.rar
 *.tar
 *.tar.gz

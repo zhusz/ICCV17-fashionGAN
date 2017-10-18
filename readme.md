@@ -10,15 +10,17 @@ This is the implementation of Shizhan Zhu et al.'s ICCV-17 work [Be Your Own Pra
 
 ## Qualitative Results
 
+![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
+
 The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
 
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
 
 ## Dependency
-The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required if you use the released off-the-shelf pre-trained model. [PyTorch](https://github.com/pytorch/pytorch) is required if you want to pre-train the language encoding on your own.
+The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required.
 
 ## Getting data
-Run the following command to obtain the training data and the off-the-shelf pre-trained model. It might take some time.
+Run the following command to obtain the training data and the off-the-shelf pre-trained model. It might take some time. Folders for models are also created here.
 ```shell
 sh download.sh
 ```
