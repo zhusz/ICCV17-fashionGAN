@@ -8,6 +8,26 @@ Released on Oct 11, 2017
 
 This is the implementation of Shizhan Zhu et al.'s ICCV-17 work [Be Your Own Prada: Fashion Synthesis with Structural Coherence](https://arxiv.org/abs/1710.07346). It is open source under BSD-3 license (see the `LICENSE` file). Codes can be used freely only for academic purpose. If you want to apply it to industrial products, please send an email to Shizhan Zhu at `zhshzhutah2@gmail.com` first.
 
+## Acknoledgement
+
+The motivation of this work, as well as the training data used, are from the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html). Please cite the following papers if you use the codes or data of this work:
+
+```
+@inproceedings{liuLQWTcvpr16DeepFashion,
+ author = {Ziwei Liu and Ping Luo and Shi Qiu and Xiaogang Wang and Xiaoou Tang},
+ title = {DeepFashion: Powering Robust Clothes Recognition and Retrieval with Rich Annotations},
+ booktitle = {Proceedings of IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+ month = June,
+ year = {2016} 
+ }
+@inproceedings{zhu2017be,
+  title={Be Your Own Prada: Fashion Synthesis with Structural Coherence},
+  author={Zhu, Shizhan and Fidler, Sanja and Urtasun, Raquel and Lin, Dahua and Chen, Change Loy},
+  booktitle={Proceedings of the IEEE Conference on International Conference on Computer Vision},
+  year={2017}
+}
+```
+
 ## Qualitative Results
 
 Matirx Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
@@ -22,10 +42,7 @@ Walking the latent space: For each row, the first and the last images are the tw
 The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required.
 
 ## Getting data
-Run the following command to obtain the training data and the off-the-shelf pre-trained model. It might take some time. Folders for models are also created here.
-```shell
-sh download.sh
-```
+The data is temporarily unavailable and it will be available again soon.
 
 ## Testing
 All the testing codes are in the `demo_release` folder. The GAN of our second stage has three options in our implementation.
