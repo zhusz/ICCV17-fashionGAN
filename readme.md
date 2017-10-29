@@ -39,10 +39,18 @@ Walking the latent space: For each row, the first and the last images are the tw
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
 
 ## Dependency
-The implementation is based on [Torch](https://github.com/torch/torch7). CuDNN is required.
+The implementation is based on [Torch](https://github.com/torch/torch7). [CuDNN](https://github.com/soumith/cudnn.torch) is required.
 
 ## Getting data
-The data is temporarily unavailable and it will be available again soon.
+1. Step 1 (Mandatory): Run the following command to obtain part of the training data and the off-the-shelf pre-trained model. It might take some time. Folders for models are also created here.
+```shell
+sh download.sh
+```
+This part of the data contains all the new annotations (languages and segmentation maps) on the subset of the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html), as well as the benchmarking info (the train-test split and the image-language pairs of the test set). Compared to the full data that we wish to release, it does not contain the ``G2.h5`` (which you need to obtain according to Step 2 below). Using this part of the data, you can already perform all the demo (testing) and train our GAN of the first stage (generating the segmentation map).
+
+2. Step 2: You can also optionally obtain ``G2.h5`` in the same way as obtaining the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html). Please refer to [that page](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) for detailed instructions (e.g. sign up an agreement). After obtaining the ``G2.h5``, you need to put it into the directory of ``./data_release/supervision_signals/`` before you can train our second-stage-GAN.
+
+For any questions regarding obtaining the data (e.g. cannot obtain through the Dropbox via the link) please send an email to ``zhshzhutah2@gmail.com``.
 
 ## Testing
 All the testing codes are in the `demo_release` folder. The GAN of our second stage has three options in our implementation.
