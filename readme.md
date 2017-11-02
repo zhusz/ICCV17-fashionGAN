@@ -6,23 +6,13 @@ Released on Oct 11, 2017
 
 ## Updates
 
-We will soon release a complete demo that you can use your own image and language to serve as the input. Your own original image is not limited to be 128x128 but our output is 128x128. Your input sentence is assumed not to contains words that our model does not know. You don't need to do human parsing on your own as the new demo will do it (Yes!!!).
+We will soon release a complete demo that you can use your own image and language to serve as the input. Your own original image is not limited to be 128x128 but our output is 128x128. Your input sentence is assumed not to contains words that our model does not know. You don't need to do human parsing on your own as the new demo will do it (Yes!!!). **Available next Monday.**
 
 To facilitate future researches, we provide the indexing of our selected subset from the DeepFashion Dataset (attribute prediction task). It contains a .mat file which contains a 78979-dim indexing vector pointing to the index among the full set (the values are between 1 and 289222). We also provide the nameList of the selected subset. Download the indexing [here](https://www.dropbox.com/s/2koeocszpnusm4y/subset_index.tar.gz).
 
 ## Description
 
 This is the implementation of Shizhan Zhu et al.'s ICCV-17 work [Be Your Own Prada: Fashion Synthesis with Structural Coherence](https://arxiv.org/abs/1710.07346). It is open source under BSD-3 license (see the `LICENSE` file). Codes can be used freely only for academic purpose. If you want to apply it to industrial products, please send an email to Shizhan Zhu at `zhshzhutah2@gmail.com` first.
-
-## Qualitative Results
-
-Matirx Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
-
-![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
-
-Walking the latent space: For each row, the first and the last images are the two samples that we will make the interpolation. We gradually change the input from the left image. In the first row, we only interpolate the input to the first stage and hence the generated results only change in shapes. In the second row, we only interpolate the input to the second stage and hence the results only change in textures. The last row interpolate the input for both the first and second stages and hence the generated interpolated results transfer smoothly from the left to the right.
-
-![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
 
 ## Acknoledgement
 
@@ -44,17 +34,27 @@ The motivation of this work, as well as the training data used, are from the [De
 }
 ```
 
+## Qualitative Results
+
+Matirx Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
+
+![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
+
+Walking the latent space: For each row, the first and the last images are the two samples that we will make the interpolation. We gradually change the input from the left image. In the first row, we only interpolate the input to the first stage and hence the generated results only change in shapes. In the second row, we only interpolate the input to the second stage and hence the results only change in textures. The last row interpolate the input for both the first and second stages and hence the generated interpolated results transfer smoothly from the left to the right.
+
+![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
+
 ## Dependency
 The implementation is based on [Torch](https://github.com/torch/torch7). [CuDNN](https://github.com/soumith/cudnn.torch) is required.
 
 ## Getting data
-1. Step 1 (Mandatory): Run the following command to obtain part of the training data and the off-the-shelf pre-trained model. It might take some time. Folders for models are also created here.
+1. Step 1: Run the following command to obtain part of the training data and the off-the-shelf pre-trained model. Folders for models are also created here.
 ```shell
 sh download.sh
 ```
-This part of the data contains all the new annotations (languages and segmentation maps) on the subset of the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html), as well as the benchmarking info (the train-test split and the image-language pairs of the test set). Compared to the full data that we wish to release, it does not contain the ``G2.h5`` (which you need to obtain according to Step 2 below). Using the data from this step, you can already perform all the demo (testing) and train our GAN of the first stage (generating the segmentation map).
+This part of the data contains all the new annotations (languages and segmentation maps) on the subset of the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html), as well as the benchmarking info (the train-test split and the image-language pairs of the test set). Compared to the full data, it does not contain the ``G2.h5`` (which you need to obtain according to Step 2 below). 
 
-2. Step 2: You can also optionally obtain ``G2.h5`` in the same way as obtaining the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html). Please refer to [that page](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html) for detailed instructions (e.g. sign up an agreement). After obtaining the ``G2.h5``, you need to put it into the directory of ``./data_release/supervision_signals/`` before you can train our second-stage-GAN.
+2. Step 2: You can obtain ``G2.h5`` in the same way as obtaining the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html). Please refer to [this page](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/FashionSynthesis.html) for detailed instructions (e.g. sign up an agreement). After obtaining the ``G2.h5``, you need to put it into the directory of ``./data_release/supervision_signals/`` before you can use the codes.
 
 For any questions regarding obtaining the data (e.g. cannot obtain through the Dropbox via the link) please send an email to ``zhshzhutah2@gmail.com``.
 
