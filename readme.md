@@ -6,7 +6,7 @@ Released on Oct 11, 2017
 
 ## Updates
 
-We will soon release a complete demo that you can use your own image and language to serve as the input. Your own original image is not limited to be 128x128 but our output is 128x128. Your input sentence is assumed not to contains words that our model does not know. You don't need to do human parsing on your own as the new demo will do it (Yes!!!). **Available next Monday.**
+The complete demo is now updated. Please refer to [here](https://github.com/zhusz/ICCV17-fashionGAN#complete-demo) for details.
 
 To facilitate future researches, we provide the indexing of our selected subset from the DeepFashion Dataset (attribute prediction task). It contains a .mat file which contains a 78979-dim indexing vector pointing to the index among the full set (the values are between 1 and 289222). We also provide the nameList of the selected subset. Download the indexing [here](https://www.dropbox.com/s/2koeocszpnusm4y/subset_index.tar.gz).
 
@@ -69,6 +69,26 @@ You can modify [this](https://github.com/zhusz/ICCV17-fashionGAN/blob/master/dem
 ## Training
 1. To train the first-stage-gan, enter the `sr1` folder and run the `train.lua` file.
 2. To train the second-stage-gan, enter the relevant folder to run the `train.lua` file. Folder `ih1` refers to our original submission. Filder `ih1_skip` refers to the second-stage-network coupled with skip connection. Folder `ih1_p2p` uses pix2pix as our second stage.
+
+## Complete demo
+By using the complete demo, you can use your own image and language to serve as the inputs. Your own original image is not limited to be 128x128 but our output is 128x128. Your input sentence is assumed not to contain words that our model does not know.
+
+To set up, get to the root directory of the repo and run the following commands:
+```shell
+sh download.sh
+cd complete_demo
+sh set_up.sh
+```
+
+In addition, we also need the [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) library to detect the bounding box of the human inside the image. Please follow the instructions to also install the OpenPose library appropriately.
+
+Please make sure that the Torch, PyTorch and matlab softwares are available on your system.
+
+The complete demo can be run with the command `OPENPOSE_DIR=\path\to\your\installed\openpose sh demo.sh`. The `input` folder should contain at least two samples like the provided ones (apology for that due to the matlab's automatic squeezing of dimensions). After running the demo, the results are expected to be stored in the `output` folder.
+
+The complete demo uses the libraries of [Dense CRF](http://graphics.stanford.edu/projects/densecrf/), [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose), as well as the dataset from [ATR](https://github.com/lemondan/HumanParsing-Dataset) and [LIP](https://github.com/Engineering-Course/LIP_SSL). Please cite these works if you are using our complete demo.
+
+Please report to us if you find your Matlab does not support the function `cp2tform`. Thanks!
 
 ## Language encoding
 Please refer to the `language` folder for training and testing the initial language encoding model.
