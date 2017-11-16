@@ -1,12 +1,8 @@
-!./complete_demo/ih1_skip.t7
-!./complete_demo/ih_mean.mat
-!./complete_demo/map.mat
-!./complete_demo/sr1.t7
-!./complete_demo/mex/DCRF_inner.mexa64
-
 *.avi
 log*
 *.t7
+!./complete_demo/ih1_skip.t7
+!./complete_demo/sr1.t7
 *.h5
 
 *.sovlerstate
@@ -56,8 +52,11 @@ log*
 
 # Compiled MATLAB
 *.mex*
+!./complete_demo/mex/DCRF_inner.mexa64
 *.mat
 !codes/vis_face_alignment/std_series/cir/*.mat
+!./complete_demo/ih_mean.mat
+!./complete_demo/map.mat
 
 # IPython notebook checkpoints
 .ipynb_checkpoints
