@@ -1,3 +1,9 @@
+!./complete_demo/ih1_skip.t7
+!./complete_demo/ih_mean.mat
+!./complete_demo/map.mat
+!./complete_demo/sr1.t7
+!./complete_demo/mex/DCRF_inner.mexa64
+
 *.avi
 log*
 *.t7

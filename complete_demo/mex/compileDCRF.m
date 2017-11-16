@@ -1,0 +1,3 @@
+% clc;
+mex DCRF_inner.cpp common.cpp labelcompatibility.cpp optimization.cpp unary.cpp ...
+    densecrf.cpp pairwise.cpp util.cpp objective.cpp permutohedral.cpp lbfgs.c
