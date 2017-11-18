@@ -56,6 +56,13 @@ This part of the data contains all the new annotations (languages and segmentati
 
 2. Step 2: You can obtain ``G2.h5`` in the same way as obtaining the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html). Please refer to [this page](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/FashionSynthesis.html) for detailed instructions (e.g. sign up an agreement). After obtaining the ``G2.h5``, you need to put it into the directory of ``./data_release/supervision_signals/`` before you can use the codes.
 
+Formatting of the data stored in the .h5 files:
+```
+b_: The segmentation label for each image, e.g. 0 represents the background.
+ih: The 128x128 images.
+ih_mean: The mean image.
+```
+
 For any questions regarding obtaining the data (e.g. cannot obtain through the Dropbox via the link) please send an email to ``zhshzhutah2@gmail.com``.
 
 ## Testing
@@ -77,7 +84,7 @@ To set up, get to the root directory of the repo and run the following commands:
 ```shell
 sh download.sh
 cd complete_demo
-sh set_up.sh
+sh setup.sh
 ```
 
 In addition, we also need the [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) library to detect the bounding box of the human inside the image. Please follow the instructions to also install the OpenPose library appropriately.
