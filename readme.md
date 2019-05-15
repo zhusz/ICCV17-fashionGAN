@@ -36,7 +36,7 @@ The motivation of this work, as well as the training data used, are from the [De
 
 ## Qualitative Results
 
-Matirx Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
+Matrix Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
 
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
 
