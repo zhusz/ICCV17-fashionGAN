@@ -14,7 +14,7 @@ To facilitate future researches, we provide the indexing of our selected subset 
 
 This is the implementation of Shizhan Zhu et al.'s ICCV-17 work [Be Your Own Prada: Fashion Synthesis with Structural Coherence](https://arxiv.org/abs/1710.07346). It is open source under BSD-3 license (see the `LICENSE` file). Codes can be used freely only for academic purpose. If you want to apply it to industrial products, please send an email to Shizhan Zhu at `zhshzhutah2@gmail.com` first.
 
-## Acknoledgement
+## Acknowledgement
 
 The motivation of this work, as well as the training data used, are from the [DeepFashion dataset](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html). Please cite the following papers if you use the codes or data of this work:
 
@@ -36,11 +36,11 @@ The motivation of this work, as well as the training data used, are from the [De
 
 ## Qualitative Results
 
-Matirx Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
+Matrix Visualization: The samples shown in the same row are generated from the same original person while the samples shown in the same collumn are generated from the same text description.
 
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/matrix.png)
 
-Walking the latent space: For each row, the first and the last images are the two samples that we will make the interpolation. We gradually change the input from the left image. In the first row, we only interpolate the input to the first stage and hence the generated results only change in shapes. In the second row, we only interpolate the input to the second stage and hence the results only change in textures. The last row interpolate the input for both the first and second stages and hence the generated interpolated results transfer smoothly from the left to the right.
+Walking the latent space: For each row, the first and the last images are the two samples that we will make the interpolation. We gradually change the input from the left image. In the first row, we only interpolate the input to the first stage and hence the generated results only change in shapes. In the second row, we only interpolate the input to the second stage and hence the results only change in textures. The last row interpolates the input for both the first and second stages and hence the generated interpolated results transfer smoothly from the left to the right.
 
 ![](https://raw.githubusercontent.com/zhusz/ICCV17-fashionGAN/master/interp.png)
 
